@@ -72,6 +72,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 */Video/*
-/Assets/Projects/1_Cruisin_Smileys/Assets/Video/*
+/Assets/Projects/1_Cruisin_Smileys/Assets/Video/driving_SF_cut*
 
 .vsconfig
