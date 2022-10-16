@@ -54,7 +54,7 @@ namespace Joss.Helpers
 
         public static float RoundToCustom(float input, float round)
         {
-            return input = input - (input % round);
+            return input -= (input % round);
         }
 
         public static bool RandomBool()
