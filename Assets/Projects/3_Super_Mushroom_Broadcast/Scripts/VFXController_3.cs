@@ -22,6 +22,7 @@ public class VFXController_3 : MonoBehaviour
     private int spawnDelayMult = 2;
     private int alphaDur;
     private int alpha = 0;
+    private float[] maxBandVals = new float[8];
 
     private void Awake()
     {
@@ -33,14 +34,23 @@ public class VFXController_3 : MonoBehaviour
     {
         if (frame > duration) frame = 0;
         if (xPos > maxPos) xPos = 0;
-        if (alpha > alphaDur) alpha = 0;
+        if (alpha > alphaDur) { 
+            alpha = 0; 
+            for (int i=0; i<maxBandVals.Length; i++) {
+                maxBandVals[i] = 0;
+            }
+        }
 
-        float size = Mathf.Lerp(minSize, maxSize, audioPeer._audioBand[frame]);
+        if (audioPeer._audioBand[frame] > maxBandVals[frame])
+            maxBandVals[frame] = audioPeer._audioBand[frame];
+
+        float size = Mathf.Lerp(minSize, maxSize, maxBandVals[frame]);
         vfx.SetFloat("pSize", size);
         vfx.SetFloat("pXpos", xPos);
         vfx.SetInt("pSpriteIndex", frame); //set sprite by modifying pSpriteIndex of vfx graph
 
-        if (alpha<=duration) vfx.SetInt("pAlpha", 1);
+        //if (alpha<=duration) vfx.SetInt("pAlpha", 1);
+        if (alpha >= alphaDur-duration) vfx.SetInt("pAlpha", 1); // this way we have to time to compare band sizes for each band
         else vfx.SetInt("pAlpha", 0);
 
         frame++;
