@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Projects/5_Mr_Noise_&_Watch/Scenes/5.unity
     guid: a0472eea3ea84bf4d869da091b7d9fc8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Projects/7_The_Way_Through/Scenes/7.unity
     guid: dad01ba795d736e4594fce66c84672d2
+  - enabled: 1
+    path: Assets/Projects/3_Super_Mushroom_Broadcast/Scenes/3.unity
+    guid: f8b0ebef19681794fb6847dc41bd5df5
   m_configObjects: {}
